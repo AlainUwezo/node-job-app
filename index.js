@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const comparisonRoutes = require("./routes/comparisonRoutes");
 const sendLinkRoute = require("./routes/sendTestLinkRoutes");
 const testRoutes = require("./routes/testRoutes");
+const scheduleMeetRoute = require("./routes/scheduleMeetRoute");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use("/api", comparisonRoutes);
 app.use("/api", sendLinkRoute);
 app.use("/api", testRoutes);
+app.use("/api", scheduleMeetRoute);
 
 app.get("/hello", (req, res) => {
   res.json({ message: "Hello" });

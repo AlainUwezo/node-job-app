@@ -8,9 +8,19 @@ const saveTokenToDatabase = (
   username,
   token,
   expirationDate,
-  jobTitle
+  jobTitle,
+  offerId,
+  applicationId
 ) => {
-  tokenStore.set(token, { email, username, expirationDate, jobTitle });
+  console.log("OFFER ID " + offerId + " app id " + applicationId);
+  tokenStore.set(token, {
+    email,
+    username,
+    expirationDate,
+    jobTitle,
+    offerId,
+    applicationId,
+  });
 };
 
 const getTokenData = (token) => {

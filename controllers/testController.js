@@ -20,9 +20,11 @@ const accessTest = (req, res) => {
   res.status(200).json({
     jobTitle: tokenData.jobTitle || "Titre du Test",
     username: tokenData.username || "",
-    email: tokenData.email,
+    email: tokenData.email || "",
+    offerId: tokenData.offerId || "",
     description: tokenData.description || "Description du Test",
     date: tokenData.date || new Date().toISOString(),
+    applicationId: tokenData.applicationId || "",
   });
 };
 

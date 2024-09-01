@@ -10,6 +10,8 @@ const sendLink = async (req, res) => {
     jobTitle,
     expirationDate,
     companyName,
+    offerId,
+    applicationId,
   } = req.body;
 
   if (
@@ -18,7 +20,9 @@ const sendLink = async (req, res) => {
     !testLink ||
     !jobTitle ||
     !expirationDate ||
-    !companyName
+    !companyName ||
+    !offerId ||
+    !applicationId
   ) {
     return res
       .status(400)
@@ -36,13 +40,15 @@ const sendLink = async (req, res) => {
     username,
     token,
     expirationDate,
-    jobTitle
+    jobTitle,
+    offerId,
+    applicationId
   );
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: recipientEmail,
-    subject: "Votre Test pour le Poste",
+    subject: `Votre application pour le poste de ${jobTitle} chez ${companyName}`,
     html: `
       <html>
         <body>
