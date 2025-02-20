@@ -15,7 +15,10 @@ app.use(bodyParser.json());
 
 app.use("/api", comparisonRoutes);
 app.use("/api", sendLinkRoute);
-app.use("/api", testRoutes);
+
+console.log("Test routes start");
+app.use("/", testRoutes);
+console.log("Test routes end");
 app.use("/api", scheduleMeetRoute);
 
 app.get("/hello", (req, res) => {

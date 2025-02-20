@@ -2,13 +2,18 @@
 const { hasToken, getTokenData } = require("../config/tokenStore");
 
 const accessTest = (req, res) => {
+  console.log("Befor token", req);
   const { token } = req.query;
+
+  console.log("Token", token);
 
   if (!token || !hasToken(token)) {
     return res.status(403).send("Access denied or invalid token");
   }
 
   const tokenData = getTokenData(token);
+
+  console.log("Token Data", tokenData);
 
   // Vérifiez si le token a expiré
   if (new Date() > new Date(tokenData.expirationDate)) {
